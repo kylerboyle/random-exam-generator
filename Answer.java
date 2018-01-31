@@ -33,7 +33,7 @@ class Answer
             default:
                 break;
         }
-        System.out.println(pos + ": " + text);
+        System.out.println("\t" + pos + ": " + text);
     }
 
     public void setSelected() {
