@@ -6,25 +6,9 @@ public class ExamTester
 {
 
     public static void main(String args[]) {
+        System.out.println("Kyler Boyle");
+        System.out.println("kboyle7");
         Exam theExam = new Exam("This is my test Exam");
-        
-       //  Question q = new Question("What is the capital of Illinois?");
-       //  Answer a = new Answer("Springfield");
-       //  Answer b = new Answer("Jello");
-       //  Answer c = new Answer("Kyler");
-
-       //  theExam.addQuestion(q);
-       //  theExam.getQuestion(0).addAnswer(a);
-       //  theExam.getQuestion(0).addAnswer(b);
-       //  theExam.getQuestion(0).addAnswer(c);
-       //  theExam.print();
-       //  theExam.getQuestion(0).selectAnswer(0);
-       //  a.setValue(100, 0);
-       //  System.out.println(theExam.getValue());
-       //  theExam.getQuestion(0).unselectAnswer(0);
-       //  System.out.println(theExam.getValue());
-       //  theExam.getQuestion(0).reorderAnswers();
-       //  theExam.print();
 
         int j = -1;
         int i = 0;
@@ -39,17 +23,17 @@ public class ExamTester
             while (fileRead != null)
             {
                 // use string.split to load a string array with the values from each line of
-                // the file, using a comma as the delimiter
+                // the file, using an endline char as the delimiter
                 String[] tokenize = fileRead.split("\n");
 
                 // assume file is made correctly
-                // and make temporary variables for the three types of data
+                // and make a temporary variable for data.
                 String tempItem = tokenize[0];
 
                 // creat temporary instance of Inventory object
-                // and load with three data values
+                // and load with data value
                 if(i % 6 == 0) {
-                    Question tempQues = new Question(tempItem);
+                    Question tempQues = new Question(tempItem + "?");
                     theExam.addQuestion(tempQues);
                     j++;
                 } else { 
@@ -79,11 +63,11 @@ public class ExamTester
             ioe.printStackTrace();
         }
         
-        for(int k = 0; k < j; k++) {
+        for(int k = 0; k <= j; k++) {
             theExam.getQuestion(k).reorderAnswers();
         }
 
-        //theExam.reorderQuestions();
+        theExam.reorderQuestions();
         theExam.print();
 
         System.out.println("The value of the exam: " + theExam.getValue());
