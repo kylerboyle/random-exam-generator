@@ -8,17 +8,19 @@ import java.io.*;
 class Answer
 {
     private boolean selected;
-    private double value;
+    private double selectedValue;
+    private double unselectedValue;
     private String text;
 
     public Answer(String text) {
         selected = false;
-        value = 0;
+        selectedValue = 0;
+        unselectedValue = 0;
         this.text = text;
     }
 
     public void print(int position) {
-        char pos;
+        char pos = 0;
         switch (position) {
             case 0:
                 pos = 'A';
@@ -28,7 +30,7 @@ class Answer
                 pos = 'C';
             case 3:
                 pos = 'D';
-            case 4"
+            case 4:
                 pos = 'E';
             default:
                 break;

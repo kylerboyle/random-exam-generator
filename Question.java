@@ -13,11 +13,11 @@ class Question
     
     private String text;
     private Answer answers[];
-    private numSelected;
-    private value;
+    private int numSelected;
+    private double value;
 
     // current number of answers
-    private numAnswers;
+    private int numAnswers;
     
 
     // Constructor
@@ -26,7 +26,6 @@ class Question
         answers = new Answer[N];
         numSelected = 0;
         value = 0;
-        numAnswers = 0;
     }
     
     // add an answer to the question
@@ -64,13 +63,13 @@ class Question
     }
     
     // pseudorandomly reorder questions
-    public void reorderAnswers(void) {
-        Collections.shuffle(answers, new Random());
+    public void reorderAnswers() {
+        Collections.shuffle(Arrays.asList(answers), new Random());
     }
 
     // get value of question based on selected/unselected
-    public double getValue(void) {
-        int accum = 0.0;
+    public double getValue() {
+        double accum = 0.0;
         for(int i = 0; i < N; i++) {
             accum += answers[i].getValue();
         }

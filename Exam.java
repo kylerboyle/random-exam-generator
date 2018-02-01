@@ -5,7 +5,6 @@ import java.util.*;
     @author Kyler Boyle
     @ACCC kboyle7
 */
-:sp
 class Exam
 {
     
