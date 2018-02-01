@@ -8,27 +8,27 @@ import java.util.*;
 class Exam
 {
     
-    String title;
-    ArrayList<Question> questions;
-    int numQuestions;
+    private String title;
+    private ArrayList<Question> questions;
+    private int numQuestions;
 
     // Constructor
     public Exam(String text) {
         title = text;
-        questions = new ArrayList<Question>();
+        questions = new ArrayList<Question>(100);
     }
 
     // add a question to the exam
     public void addQuestion(Question theQuestion) {
         questions.add(theQuestion);
+        numQuestions++;
     }
 
     // print the entire exam
     public void print() {
         System.out.println(title);
-        int i = 1;
-        for(Question q : questions) {
-            q.print(i++);
+        for(int i = 1; i <= numQuestions; i++) {
+            questions.get(i-1).print(i);
         }
     }
 

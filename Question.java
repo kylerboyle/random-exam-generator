@@ -26,6 +26,7 @@ class Question
         answers = new Answer[N];
         numSelected = 0;
         value = 0;
+        numAnswers = 0;
     }
     
     // add an answer to the question
@@ -53,12 +54,14 @@ class Question
             }
         }
         answers[position].setSelected();
+        numSelected++;
     }
     
     // unselect answer at specified position
     public void unselectAnswer(int position) {
         if(answers[position].isSelected()) {
             answers[position].setSelected();
+            numSelected--;
         }
     }
     
@@ -70,7 +73,7 @@ class Question
     // get value of question based on selected/unselected
     public double getValue() {
         double accum = 0.0;
-        for(int i = 0; i < N; i++) {
+        for(int i = 0; i < 3; i++) {
             accum += answers[i].getValue();
         }
 

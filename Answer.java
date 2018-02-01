@@ -24,14 +24,19 @@ class Answer
         switch (position) {
             case 0:
                 pos = 'A';
+                break;
             case 1:
                 pos = 'B';
+                break;
             case 2:
                 pos = 'C';
+                break;
             case 3:
                 pos = 'D';
+                break;
             case 4:
                 pos = 'E';
+                break;
             default:
                 break;
         }
