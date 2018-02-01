@@ -3,7 +3,7 @@ random-exam-generator Program Version 1.0 02/01/2018
 @author Kyler Boyle
 @netID kboyle7
 
-GENERAL USAGE NOTES
+General Usage Notes
 -------------------
 
 - This program uses a hardcoded dictionary to simply populate strings into the questions
@@ -19,14 +19,14 @@ GENERAL USAGE NOTES
 
 - To see the shuffling of individual answers, comment out line 70.
 
-TO RUN THE PROGRAM
+To Run the Program
 ------------------
 
 - To run the program, ensure the dictionary-small.txt and makefile are available in
   the directory. Type 'make' and the program will compile the ExamTester.java class
   that contains the main function. By typing 'java ExamTester' you will run the program.
 
-EXTRA METHODS
+Extra Methods
 -------------
 
 - The program has an extra method in the Answer class defined as isSelected().
