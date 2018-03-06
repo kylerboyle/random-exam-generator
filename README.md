@@ -1,4 +1,4 @@
-random-exam-generator Program Version 1.0 02/01/2018
+random-exam-generator Program Version 1.1 02/01/2018
 
 @author Kyler Boyle
 @netID kboyle7
@@ -6,29 +6,25 @@ random-exam-generator Program Version 1.0 02/01/2018
 General Usage Notes
 -------------------
 
-- This program uses a hardcoded dictionary to simply populate strings into the questions
-  and answers. While these are not actually questions, it is a proof of concept of the
-  program placing strings into the question title and each answer title.
+- This program will print hardcoded questions and answers and will prompt for user input after each
+  question. Multiple choice questions should be answered by typing in the corresponding letter and
+  short answer questions should be answered accordingly.
 
-- The program selects and unselects answers so the value of the exam will change when scored.
-  It also shuffles answers and questions so on each successive run, questions and answers
-  within those questions will change.
+- The program has hard coded partial credit for the question called 'Question 1'.
 
 - It is possible to redefine a new ExamTester class with a different main function in order
   to run other unit tests.
 
-- To see the shuffling of individual answers, comment out line 70.
 
 To Run the Program
 ------------------
 
-- To run the program, ensure the dictionary-small.txt and makefile are available in
+- To run the program, ensure the makefile and all .java files are available in
   the directory. Type 'make' and the program will compile the ExamTester.java class
   that contains the main function. By typing 'java ExamTester' you will run the program.
 
 Extra Methods
 -------------
 
-- The program has an extra method in the Answer class defined as isSelected().
-  This allows the program to see if an answer is selected in order to check
-  for multiple selected answers.
+- The program has a couple extra functions to convert between chars and ints. They will not affect
+  the user in any way.

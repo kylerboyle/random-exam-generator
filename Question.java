@@ -6,43 +6,55 @@ import java.util.*;
     @ACCC kboyle7
 */
 
-class Question
+abstract class Question
 {
     // number of answers per question
     int N = 5;
     
-    private String text;
-    private Answer answers[];
-    private int numSelected;
-    private double value;
-
-    // current number of answers
-    private int numAnswers;
-    
+    protected String text;
+    protected Answer rightAnswer;
+    protected Answer studentAnswer;
+    protected double maxValue;
 
     // Constructor
-    public Question(String text) {
+
+    protected Question() {
+        text = "";
+        maxValue = 0.0;
+        rightAnswer = null;
+        studentAnswer = null;
+    }
+
+    protected Question(String text) {
         this.text = text;
-        answers = new Answer[N];
-        numSelected = 0;
-        value = 0;
-        numAnswers = 0;
+        maxValue = 0.0;
+        rightAnswer = null;
+        studentAnswer = null;
     }
     
-    // add an answer to the question
-    public void addAnswer(Answer theAnswer) {
-        answers[numAnswers++] = theAnswer;
+    protected Question(String text, double maxValue) {
+        this.text = text;
+        this.maxValue = maxValue;
+        rightAnswer = null;
+        studentAnswer = null;
     }
     
     // print the question and all answers
-    public void print(int position) {
-        System.out.println(position + ": " + text);
-        for(int i = 0; i < numAnswers; i++) {
-            answers[i].print(i);
-        }
-        System.out.println("\n");
+    public void print() {
+        System.out.println(text + "\n");
     }
 
+    // sets the right answer to the question
+    public abstract void setRightAnswer(Answer ans);
+
+    // creates and returns a new Answer object for type of Question
+    // overridden in concrete classes
+    public abstract Answer getNewAnswer();
+
+    // get the answer to the question from the student
+    // and store in the studentAnswer variable
+    public abstract void getAnswerFromStudent();
+/*
     // select answer at specified position
     public void selectAnswer(int position) {
         if(!answers[position].isSelected() && numSelected > 0) {
@@ -69,17 +81,8 @@ class Question
     public void reorderAnswers() {
         Collections.shuffle(Arrays.asList(answers), new Random());
     }
-
+*/
     // get value of question based on selected/unselected
-    public double getValue() {
-        double accum = 0.0;
-        for(int i = 0; i < 3; i++) {
-            accum += answers[i].getValue();
-        }
-
-        return accum;
-    }
-
-    
+    public abstract double getValue();
 
 }

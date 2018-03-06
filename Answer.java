@@ -5,44 +5,19 @@ import java.io.*;
     @ACCC kboyle7
 */
 
-class Answer
+abstract class Answer
 {
-    private boolean selected;
-    private double selectedValue;
-    private double unselectedValue;
-    private String text;
-
-    public Answer(String text) {
-        selected = false;
-        selectedValue = 0;
-        unselectedValue = 0;
-        this.text = text;
+    protected Answer() {
+    
     }
 
-    public void print(int position) {
-        char pos = 0;
-        switch (position) {
-            case 0:
-                pos = 'A';
-                break;
-            case 1:
-                pos = 'B';
-                break;
-            case 2:
-                pos = 'C';
-                break;
-            case 3:
-                pos = 'D';
-                break;
-            case 4:
-                pos = 'E';
-                break;
-            default:
-                break;
-        }
-        System.out.println("\t" + pos + ": " + text);
-    }
+    public abstract void print();
 
+    public abstract double getCredit(Answer rightAnswer);
+
+
+    // might use later
+    /*
     public void setSelected() {
         selected = !selected;
     }
@@ -65,4 +40,6 @@ class Answer
             return unselectedValue;
         }
     }
+
+    */
 }
