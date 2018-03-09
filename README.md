@@ -1,10 +1,10 @@
-random-exam-generator Program Version 1.1 02/01/2018
+random-exam-generator Program Version 1.2 03/09/2018
 
 @author Kyler Boyle
+
 @netID kboyle7
 
-General Usage Notes
--------------------
+## General Usage Notes
 
 - This program will print hardcoded questions and answers and will prompt for user input after each
   question. Multiple choice questions should be answered by typing in the corresponding letter and
@@ -16,15 +16,15 @@ General Usage Notes
   to run other unit tests.
 
 
-To Run the Program
-------------------
+## To Run the Program
 
 - To run the program, ensure the makefile and all .java files are available in
   the directory. Type 'make' and the program will compile the ExamTester.java class
   that contains the main function. By typing 'java ExamTester' you will run the program.
 
-Extra Methods
--------------
+## Extra Methods
 
 - The program has a couple extra functions to convert between chars and ints. They will not affect
   the user in any way.
+
+Copyright 2018 Kyler Boyle. All Rights Reserved.
