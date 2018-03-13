@@ -35,5 +35,12 @@ abstract class MCQuestion extends Question {
         rightAnswer = ans;
     }
 
+    public double getValue(MCAnswer theStudentAnswer) {
+        double accum = 0.0;
+        for(Answer a : answers) {
+            accum += theStudentAnswer.getCredit(a);
+        }
+        return accum;
+    }
 
 }

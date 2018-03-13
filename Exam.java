@@ -18,6 +18,11 @@ class Exam
         questions = new ArrayList<Question>(100);
     }
 
+    public Exam(Scanner s) {
+        title = s.nextLine();
+        questions = new ArrayList<Question>(100);
+    }
+
     // print the entire exam
     public void print() {
         System.out.println(title);
@@ -84,5 +89,8 @@ class Exam
                                 q.getValue() + " points");
         }
     }
+/*
+    public void save(PrintWriter pw) {
+  */      
 
 }

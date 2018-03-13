@@ -12,6 +12,7 @@ class SAAnswer extends Answer
         this.text = text;
     }
 
+    @Override
     public void print() {
         System.out.println("\t" + text);
     }
@@ -21,6 +22,7 @@ class SAAnswer extends Answer
     }
 
     // need to update to support partial credit
+    @Override
     public double getCredit(Answer rightAnswer) {
         SAAnswer tmp = new SAAnswer();
         tmp = (SAAnswer)rightAnswer;
@@ -31,9 +33,4 @@ class SAAnswer extends Answer
       
         }
     }
-
-    public void setText(String theText) {
-        text = theText;
-    }
-
 }

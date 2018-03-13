@@ -29,13 +29,13 @@ class MCSAQuestion extends MCQuestion {
 
     // NEEDS ATTENTION
     public void getAnswerFromStudent() {
-        Scanner s = new Scanner(System.in);
-        String answer = s.nextLine();
+        Scanner input = ScannerFactory.getScanner();
+        String answer = input.nextLine();
         answer = answer.toUpperCase();
         char answerChar = answer.charAt(0);
         MCSAAnswer tmp = (MCSAAnswer)answers.get(convertCharToInt(answerChar));
-        tmp.setSelected(true);
-        
+        //tmp.setSelected(true);
+        studentAnswer = tmp; 
         /*
         for(Answer a : answers) {
             MCSAAnswer tmp = (MCSAAnswer)a;
@@ -47,11 +47,7 @@ class MCSAQuestion extends MCQuestion {
     }
 
     public double getValue() {
-        double accum = 0.0;
-        for(Answer a : answers) {
-            accum+= a.getCredit(rightAnswer);
-        }
-        return accum;
+        return super.getValue((MCAnswer)studentAnswer)*maxValue;
     }
 
     public void setRightAnswer(Answer ans) {

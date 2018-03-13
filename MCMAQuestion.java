@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+class MCMAQuestion extends MCQuestion {
+
+    protected ArrayList<Answer> studentAnswer;
+    public double baseCredit;
+
+    public MCMAQuestion(String text, double maxValue, double baseCredit) {
+        super(text, maxValue);
+        this.baseCredit = baseCredit;
+        studentAnswer = new ArrayList<Answer>(5);
+    }
+
+    public MCMAAnswer getNewAnswer() {
+        MCMAAnswer theAnswer = new MCMAAnswer();
+        return theAnswer;
+    }
+
+    public MCMAAnswer getNewAnswer(String text, double value) {
+        MCMAAnswer theAnswer = new MCMAAnswer(text, value);
+        return theAnswer;
+    }
+
+    public int convertCharToInt(char a) {
+        return (int)(a - 65);
+    }
+
+    public void getAnswerFromStudent() {
+        Scanner input = ScannerFactory.getScanner();
+        String tmp = input.nextLine();
+        String ans[] = tmp.split(" ");
+        for(String a : ans) {
+            a = a.toUpperCase();
+            MCMAAnswer ansTmp = (MCMAAnswer)answers.get(convertCharToInt(a.charAt(0)));
+            studentAnswer.add(ansTmp);
+        }
+    }
+
+    public double getValue() {
+        double accum = 0.0;
+        for(Answer a : studentAnswer) {
+            accum += super.getValue((MCAnswer)a);
+        }
+        return accum + baseCredit;
+    }
+   
+}
+

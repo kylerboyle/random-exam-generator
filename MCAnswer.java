@@ -40,4 +40,13 @@ abstract class MCAnswer extends Answer
         text = theText;
     }
 
+    public double getCredit(Answer theAnswer) {
+        MCAnswer tmp = (MCAnswer)theAnswer;
+        if(text.equalsIgnoreCase(tmp.getText())) {
+            return creditIfSelected;
+        } else {
+            return 0.0;
+        }
+    }
+
 }

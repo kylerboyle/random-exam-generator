@@ -12,7 +12,7 @@ public class ExamTester
 
         // creating MCSAQuestion
         // shows shuffling of answers and questions
-        MCSAQuestion q1 = new MCSAQuestion("This is question 1?", 1);
+        MCSAQuestion q1 = new MCSAQuestion("This is question 1?", 10);
         MCSAAnswer first = q1.getNewAnswer("First!", 1);
         q1.addAnswer(first);
         MCSAAnswer second = q1.getNewAnswer("Second!", .5);
@@ -24,20 +24,17 @@ public class ExamTester
         MCSAAnswer fifth = q1.getNewAnswer("Fifth!",0);
         q1.addAnswer(fifth);
 
-        q1.setRightAnswer(first);
-        q1.setRightAnswer(second);
         theExam.addQuestion(q1);
 
         // creating SAQuestion
         // shows shuffling of questions
-        SAQuestion q2 = new SAQuestion("This is SA question 2?");
+        SAQuestion q2 = new SAQuestion("This is SA question 2?", 20);
         SAAnswer q2Ans = q2.getNewAnswer("Tester charlie");
 
-        q2.setRightAnswer(q2Ans);
         theExam.addQuestion(q2);
         
         // creating MCSAQuestion
-        MCSAQuestion q3 = new MCSAQuestion("How many eggs are in a cartion?", 2);
+        MCSAQuestion q3 = new MCSAQuestion("How many eggs are in a carton?", 2);
         MCSAAnswer q3First = q3.getNewAnswer("One", 0);
         q3.addAnswer(q3First);
         MCSAAnswer q3Second = q3.getNewAnswer("Five", 0);
@@ -45,16 +42,25 @@ public class ExamTester
         MCSAAnswer q3Third = q3.getNewAnswer("Twelve", 1);
         q3.addAnswer(q3Third);
         
-        q3.setRightAnswer(q3Third);
         theExam.addQuestion(q3);
 
         // creating SAQuestion
-        SAQuestion q4 = new SAQuestion("How do you spell 'fort'?");
+        SAQuestion q4 = new SAQuestion("How do you spell 'fort'?", 10);
         SAAnswer q4Ans = q4.getNewAnswer("fort");
 
         q4.setRightAnswer(q4Ans);
         theExam.addQuestion(q4);
+        
+        // creating MCMAQuestion
+        MCMAQuestion q5 = new MCMAQuestion("Choose Yes1 and Yes2!", 10, 2);
+        MCMAAnswer q5First = q5.getNewAnswer("Yes1", 4);
+        q5.addAnswer(q5First);
+        MCMAAnswer q5Second = q5.getNewAnswer("Yes2", 4);
+        q5.addAnswer(q5Second);
+        MCMAAnswer q5Third = q5.getNewAnswer("Yes3", -1);
+        q5.addAnswer(q5Third);
 
+        theExam.addQuestion(q5);
 
         // reorder the MCAnswers and the questions
         theExam.reorderMCAnswers(-1);
@@ -74,46 +80,11 @@ public class ExamTester
         {
             BufferedReader br = new BufferedReader(new FileReader("input.txt"));
 
-            String fileRead = br.readLine();
+            Exam theExam = new Exam(br.readLine());
+            
             while(fileRead != null)
             {
-                String[] tokenize = fileRead.split("\n");
-
-                String tempItem = tokenize[0];
-
-                if(tempItem.equalsIgnoreCase("SAQuestion")) {
-                    fileRead = br.readLine();
-                    SAQuestion tmp5 = new SAQuestion(fileRead, 1);
-                    fileRead = br.readLine();
-                    SAAnswer tmpAns11 = tmp5.getNewAnswer();
-                    tmpAns11.setText(fileRead);
-                    tmp5.setRightAnswer(tmpAns11);
-                    theExam.addQuestion(tmp5);
-                }
-                if(tempItem.equalsIgnoreCase("MCSAQuestion")) {
-                    fileRead = br.readLine();
-                    MCSAQuestion tmp5 = new MCSAQuestion(fileRead,1);
-                    int num = br.nextInt();
-                    int i = 0;
-                    while(i < num) {
-                        fileRead = br.readLine();
-                        tokenize = fileRead.split(" ");
-                        MCSAAnswer tmpAns11 = tmp5.getNewAnswer();
-                        int num2 = fileRead.nextInt();
-                        if(num2 > 0) {
-                            String ans = fileRead.next();
-                            tmpAns11.setText(ans);
-                            tmp5.setRightAnswer(tmpAns11);
-                            tmp5.addAnswer(tmpAns11);
-                        } else {
-                            String ans = fileRead.next();
-                            tmpAns11.setText(ans);
-                            tmp5.setRightAnswer(tmpAns11);
-                            tmp5.addAnswer(tmpAns11);
-                        }
-                    }
-                
-                }
+               if(
             }
         }
 
@@ -127,9 +98,7 @@ public class ExamTester
         {
             ioe.printStackTrace();
         }
-
         */
-
 
                  /*
         int i = 0;

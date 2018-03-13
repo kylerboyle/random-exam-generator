@@ -4,29 +4,27 @@ import java.util.*;
 class SAQuestion extends Question
 {
 
-    public SAQuestion(String text) {
-        super(text);
+    public SAQuestion(String text, double value) {
+        super(text, value);
     }
 
     public SAAnswer getNewAnswer() {
-        SAAnswer theAnswer = new SAAnswer();
-        return theAnswer;
+        return new SAAnswer();
     }
 
     public SAAnswer getNewAnswer(String text) {
-        SAAnswer theAnswer = new SAAnswer(text);
-        return theAnswer;
+        return new SAAnswer(text);
     }
 
     public void getAnswerFromStudent() {
-        Scanner s = new Scanner(System.in);
-        String answer = s.nextLine();
-        SAAnswer theAnswer = new SAAnswer(answer);
-        studentAnswer = theAnswer;
+        Scanner input = ScannerFactory.getScanner();
+        studentAnswer = new SAAnswer(input.nextLine());
     }
 
     public double getValue() {
-        return studentAnswer.getCredit(rightAnswer);
+        if(studentAnswer == null)
+            return 0.0;
+        return studentAnswer.getCredit(rightAnswer) * maxValue;
     }
 
     public void setRightAnswer(Answer ans) {
