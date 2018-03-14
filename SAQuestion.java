@@ -8,6 +8,13 @@ class SAQuestion extends Question
         super(text, value);
     }
 
+    public SAQuestion(Scanner s) {
+        maxValue = s.nextDouble();
+        s.nextLine();
+        text = s.nextLine();
+        rightAnswer = new SAAnswer(s);
+    }
+
     public SAAnswer getNewAnswer() {
         return new SAAnswer();
     }

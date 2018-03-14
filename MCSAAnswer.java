@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 class MCSAAnswer extends MCAnswer
 {
@@ -6,12 +7,12 @@ class MCSAAnswer extends MCAnswer
         super();
     }
     
-    public MCSAAnswer(String text) {
-        super(text);
-    }
-
     public MCSAAnswer(String text, double creditIfSelected) {
         super(text, creditIfSelected);
-    } 
+    }
+
+    public MCSAAnswer(Scanner s) {
+        super(s);
+    }
 
 }

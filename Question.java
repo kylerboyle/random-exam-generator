@@ -25,11 +25,8 @@ abstract class Question
         studentAnswer = null;
     }
 
-    protected Question(String text) {
-        this.text = text;
-        maxValue = 0.0;
-        rightAnswer = null;
-        studentAnswer = null;
+    protected Question(Scanner s) {
+        
     }
     
     protected Question(String text, double maxValue) {

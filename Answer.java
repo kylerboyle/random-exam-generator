@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 /* A Java class to represent answers on an exam
     @author Kyler Boyle
@@ -9,6 +10,10 @@ abstract class Answer
 {
     protected Answer() {
     
+    }
+
+    public Answer(Scanner s) {
+
     }
 
     public abstract void print();

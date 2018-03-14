@@ -4,9 +4,18 @@ import java.util.*;
 abstract class MCQuestion extends Question {
     protected ArrayList<Answer> answers;
 
+    protected MCQuestion() {
+        text = "";
+        maxValue = 0.0;
+    }
+
     protected MCQuestion(String text, double maxValue) {
         super(text, maxValue);
         answers = new ArrayList<Answer>(5);
+    }
+
+    protected MCQuestion(Scanner s) {
+        
     }
 
     public char convertIntToChar(int num) {

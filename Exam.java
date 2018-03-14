@@ -19,8 +19,24 @@ class Exam
     }
 
     public Exam(Scanner s) {
-        title = s.nextLine();
         questions = new ArrayList<Question>(100);
+        title = s.nextLine();
+        String line;
+        while(s.hasNextLine()) {
+            line = s.nextLine();
+            if(line.equalsIgnoreCase("SAQuestion")) {
+                questions.add(new SAQuestion(s));
+                numQuestions++;
+            }
+            if(line.equalsIgnoreCase("MCSAQuestion")) {
+                questions.add(new MCSAQuestion(s));
+                numQuestions++;
+            }
+            if(line.equalsIgnoreCase("MCMAQuestion")) {
+                questions.add(new MCMAQuestion(s));
+                numQuestions++;
+            }
+        }
     }
 
     // print the entire exam

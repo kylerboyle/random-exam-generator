@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 abstract class MCAnswer extends Answer
 {
@@ -12,18 +13,17 @@ abstract class MCAnswer extends Answer
         creditIfSelected = 0.0;
     }
 
-    protected MCAnswer(String text) {
-        this.text = text;
-        selected = false;
-        creditIfSelected = 0.0;
-    }
-
     protected MCAnswer(String text, double creditIfSelected) {
         this.text = text;
         selected = false;
         this.creditIfSelected = creditIfSelected;
     }
 
+    public MCAnswer(Scanner s) {
+        creditIfSelected = s.nextDouble();
+        text = s.nextLine();
+    }
+    
     public void print() {
         System.out.println(text);
     }

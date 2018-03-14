@@ -1,5 +1,5 @@
 import java.io.*;
-
+import java.util.*;
 
 class SAAnswer extends Answer
 {
@@ -10,6 +10,10 @@ class SAAnswer extends Answer
     }
     public SAAnswer(String text) {
         this.text = text;
+    }
+
+    public SAAnswer(Scanner s) {
+        text = s.nextLine();
     }
 
     @Override

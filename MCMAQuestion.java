@@ -12,6 +12,21 @@ class MCMAQuestion extends MCQuestion {
         studentAnswer = new ArrayList<Answer>(5);
     }
 
+    public MCMAQuestion(Scanner s) {
+        answers = new ArrayList<Answer>(5);
+        studentAnswer = new ArrayList<Answer>(5);
+        maxValue = s.nextDouble();
+        s.nextLine();
+        text = s.nextLine();
+        baseCredit = s.nextDouble();
+        s.nextLine();
+        int i = s.nextInt();
+        s.nextLine();
+        for(int j = 0; j < i; j++) {
+            answers.add(new MCMAAnswer(s));
+        }
+    }
+
     public MCMAAnswer getNewAnswer() {
         MCMAAnswer theAnswer = new MCMAAnswer();
         return theAnswer;
@@ -42,7 +57,8 @@ class MCMAQuestion extends MCQuestion {
         for(Answer a : studentAnswer) {
             accum += super.getValue((MCAnswer)a);
         }
-        return accum + baseCredit;
+        return (accum + baseCredit) * maxValue; 
+
     }
    
 }

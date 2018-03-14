@@ -5,11 +5,16 @@ import java.util.*;
 public class ExamTester
 {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws FileNotFoundException {
         System.out.println("Kyler Boyle");
         System.out.println("kboyle7");
-        Exam theExam = new Exam("This is my test Exam");
+        //Exam theExam = new Exam("This is my test Exam");
+        File text = new File("input.txt");
+        Scanner s = new Scanner(text);
+        Exam theExam = new Exam(s);
 
+
+        /*
         // creating MCSAQuestion
         // shows shuffling of answers and questions
         MCSAQuestion q1 = new MCSAQuestion("This is question 1?", 10);
@@ -30,7 +35,8 @@ public class ExamTester
         // shows shuffling of questions
         SAQuestion q2 = new SAQuestion("This is SA question 2?", 20);
         SAAnswer q2Ans = q2.getNewAnswer("Tester charlie");
-
+        
+        q2.setRightAnswer(q2Ans);
         theExam.addQuestion(q2);
         
         // creating MCSAQuestion
@@ -61,6 +67,7 @@ public class ExamTester
         q5.addAnswer(q5Third);
 
         theExam.addQuestion(q5);
+        */
 
         // reorder the MCAnswers and the questions
         theExam.reorderMCAnswers(-1);

@@ -7,14 +7,24 @@ class MCSAQuestion extends MCQuestion {
     public MCSAQuestion(String text, double maxValue) {
         super(text, maxValue);
     }
+     
+    // will most likely have a bug where nextDouble is called 
+    // burn newline character with another call to nextLine
+   public MCSAQuestion(Scanner s) {
+        answers = new ArrayList<Answer>(5);
+        maxValue = s.nextDouble();
+        s.nextLine();
+        text = s.nextLine();
+        int i = s.nextInt();
+        s.nextLine();
+
+        for(int j = 0; j < i; j++) {
+            answers.add(new MCSAAnswer(s));
+        }
+    } 
 
     public MCSAAnswer getNewAnswer() {
         MCSAAnswer theAnswer = new MCSAAnswer();
-        return theAnswer;
-    }
-
-    public MCSAAnswer getNewAnswer(String text) {
-        MCSAAnswer theAnswer = new MCSAAnswer(text);
         return theAnswer;
     }
 
@@ -27,14 +37,12 @@ class MCSAQuestion extends MCQuestion {
         return (int)(a - 65);
     }
 
-    // NEEDS ATTENTION
     public void getAnswerFromStudent() {
         Scanner input = ScannerFactory.getScanner();
         String answer = input.nextLine();
         answer = answer.toUpperCase();
         char answerChar = answer.charAt(0);
         MCSAAnswer tmp = (MCSAAnswer)answers.get(convertCharToInt(answerChar));
-        //tmp.setSelected(true);
         studentAnswer = tmp; 
         /*
         for(Answer a : answers) {
