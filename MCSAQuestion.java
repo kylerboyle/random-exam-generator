@@ -76,4 +76,8 @@ class MCSAQuestion extends MCQuestion {
         studentAnswer.saveStudentAnswer(pw);
     }
 
+    public void restoreStudentAnswers(Scanner s) {
+        studentAnswer = new MCSAAnswer(s);
+    }
+
 }

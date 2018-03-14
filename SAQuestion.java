@@ -43,4 +43,13 @@ class SAQuestion extends Question
         pw.println(text);
         rightAnswer.save(pw);
     }
+
+    public void saveStudentAnswers(Scanner s) {
+        studentAnswer = new SAAnswer(s);
+    }
+    
+    @Override
+    public void restoreStudentAnswers(Scanner s) {
+        studentAnswer = new SAAnswer(s);
+    }
 }

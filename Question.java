@@ -87,4 +87,10 @@ abstract class Question
     public void saveStudentAnswer(PrintWriter pw) {
         studentAnswer.saveStudentAnswer(pw);
     }
+
+    public void restoreStudentAnswers(Scanner s) {
+    
+    }
+
+
 }

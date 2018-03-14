@@ -121,6 +121,7 @@ class Exam
                 pw.println("SAQuestion");
                 q.save(pw);
                 pw.println();
+                pw.println();
             }
             if(q instanceof MCSAQuestion) {
                 pw.println("MCSAQuestion");
@@ -156,6 +157,24 @@ class Exam
                 pw.println("MCMAQuestion");
                 q.saveStudentAnswer(pw);
                 pw.println();
+            }
+        }
+    }
+
+    public void restoreStudentAnswers(Scanner s) {
+        studentName = s.nextLine();
+        String line;
+        int i = 0;
+        while(s.hasNextLine()) {
+            line = s.nextLine();
+            if(line.equalsIgnoreCase("SAQuestion")) {
+                questions.get(i++).restoreStudentAnswers(s);
+            }
+            if(line.equalsIgnoreCase("MCSAQuestion")) {
+                questions.get(i++).restoreStudentAnswers(s);
+            }
+            if(line.equalsIgnoreCase("MCMAQuestion")) {
+                questions.get(i++).restoreStudentAnswers(s);
             }
         }
     }

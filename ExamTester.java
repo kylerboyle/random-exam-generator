@@ -8,14 +8,13 @@ public class ExamTester
     public static void main(String args[]) throws FileNotFoundException {
         System.out.println("Kyler Boyle");
         System.out.println("kboyle7");
-        //Exam theExam = new Exam("This is my test Exam");
-        File text = new File("input.txt");
-        File output = new File("test.txt");
+        File theExam1 = new File("input.txt");
+        File shuffledExam = new File("shuffled.txt");
         File studentAnswers = new File("answers.txt");
-        PrintWriter pw = new PrintWriter(output);
-        PrintWriter pw2 = new PrintWriter(studentAnswers);
-        Scanner s = new Scanner(text);
-        Exam theExam = new Exam(s);
+        PrintWriter shuffle = new PrintWriter(shuffledExam);
+        PrintWriter answers = new PrintWriter(studentAnswers);
+        Scanner inputExam = new Scanner(theExam1);
+        Exam theExam = new Exam(inputExam);
 
         theExam.getName();
 
@@ -29,21 +28,25 @@ public class ExamTester
         System.out.println("The value of the exam is: " + value);
 
         theExam.reportQuestionValues();
-        theExam.save(pw);
-        theExam.saveStudentAnswers(pw2);
-        pw.close();
-        pw2.close();
-        s.close();
+        theExam.save(shuffle);
+        theExam.saveStudentAnswers(answers);
+        shuffle.close();
+        answers.close();
+        inputExam.close();
         theExam = null;
         
-        s = new Scanner(output);
+        Scanner shuffleInput = new Scanner(shuffledExam);
+        Scanner theAnswers = new Scanner(studentAnswers);
 
-        theExam = new Exam(s);
-        theExam.print();
+        theExam = new Exam(shuffleInput);
+        theExam.restoreStudentAnswers(theAnswers);
         value = theExam.getValue();
         System.out.println("The value of the exam is: " + value);
 
         theExam.reportQuestionValues();
+
+        shuffleInput.close();
+        theAnswers.close();
     }
 
 }

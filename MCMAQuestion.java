@@ -78,6 +78,14 @@ class MCMAQuestion extends MCQuestion {
             a.saveStudentAnswer(pw);
         }
     }
+
+    public void restoreStudentAnswers(Scanner s) {
+        int i = s.nextInt();
+        s.nextLine();
+        for(int j = 0; j < i; j++) {
+            studentAnswer.add(new MCMAAnswer(s));
+        }
+    }
    
 }
 

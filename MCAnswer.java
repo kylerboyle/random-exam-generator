@@ -22,7 +22,9 @@ abstract class MCAnswer extends Answer
     public MCAnswer(Scanner s) {
         creditIfSelected = s.nextDouble();
         text = s.nextLine();
-        text = text.substring(1);
+        if(text.startsWith(" ")) {
+            text = text.substring(1);
+        }
     }
     
     public void print() {
@@ -57,6 +59,8 @@ abstract class MCAnswer extends Answer
     }
 
     public void saveStudentAnswer(PrintWriter pw) {
+        pw.print(creditIfSelected);
+        pw.print(" ");
         pw.println(text);
     }
 

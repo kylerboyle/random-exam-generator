@@ -8,12 +8,12 @@ import java.util.*;
 
 abstract class Answer
 {
+
     protected Answer() {
     
     }
 
     public Answer(Scanner s) {
-
     }
 
     public abstract void print();

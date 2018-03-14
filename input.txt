@@ -24,4 +24,13 @@ Who went to Hogwarts?  Circle all that apply:
 0.2 Rubeus Hagrid
 -0.2 Princess Leia
 -0.2 Bilbo Baggins
-0.2 Tom Riddle 
+0.2 Tom Riddle
+
+MCSAQuestion
+100.0
+Which is the best company?
+4
+1.0 Apple
+0.25 Google
+0.0 Samsung
+0.0 Microsoft
