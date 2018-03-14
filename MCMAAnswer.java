@@ -14,5 +14,4 @@ class MCMAAnswer extends MCAnswer
     public MCMAAnswer(Scanner s) {
         super(s);
     }
-
 }

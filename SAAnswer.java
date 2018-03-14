@@ -37,4 +37,12 @@ class SAAnswer extends Answer
       
         }
     }
+
+    public void save(PrintWriter pw) {
+        pw.print(text);
+    }
+
+    public void saveStudentAnswer(PrintWriter pw) {
+        pw.print(text);
+    }
 }

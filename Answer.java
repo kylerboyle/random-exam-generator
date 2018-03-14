@@ -20,6 +20,10 @@ abstract class Answer
 
     public abstract double getCredit(Answer rightAnswer);
 
+    public abstract void save(PrintWriter pw);
+
+    public abstract void saveStudentAnswer(PrintWriter pw);
+
 
     // might use later
     /*

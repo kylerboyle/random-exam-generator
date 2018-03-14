@@ -22,6 +22,7 @@ abstract class MCAnswer extends Answer
     public MCAnswer(Scanner s) {
         creditIfSelected = s.nextDouble();
         text = s.nextLine();
+        text = text.substring(1);
     }
     
     public void print() {
@@ -47,6 +48,16 @@ abstract class MCAnswer extends Answer
         } else {
             return 0.0;
         }
+    }
+
+    public void save(PrintWriter pw) {
+        pw.print(creditIfSelected);
+        pw.print(" ");
+        pw.println(text);
+    }
+
+    public void saveStudentAnswer(PrintWriter pw) {
+        pw.println(text);
     }
 
 }

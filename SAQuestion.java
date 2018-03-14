@@ -37,4 +37,10 @@ class SAQuestion extends Question
     public void setRightAnswer(Answer ans) {
         rightAnswer = ans;
     }
+
+    public void save(PrintWriter pw) {
+        pw.println(maxValue);
+        pw.println(text);
+        rightAnswer.save(pw);
+    }
 }

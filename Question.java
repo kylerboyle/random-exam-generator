@@ -82,4 +82,9 @@ abstract class Question
     // get value of question based on selected/unselected
     public abstract double getValue();
 
+    public abstract void save(PrintWriter pw);
+
+    public void saveStudentAnswer(PrintWriter pw) {
+        studentAnswer.saveStudentAnswer(pw);
+    }
 }

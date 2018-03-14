@@ -9,6 +9,7 @@ class Exam
 {
     
     private String title;
+    private String studentName;
     private ArrayList<Question> questions;
     private int numQuestions;
 
@@ -51,6 +52,12 @@ class Exam
             }
             i++;
         }
+    }
+
+    public void getName() {
+        Scanner s = ScannerFactory.getScanner();
+        System.out.println("Please enter your name");
+        studentName = s.nextLine();
     }
     
     // add a question to the exam
@@ -105,8 +112,51 @@ class Exam
                                 q.getValue() + " points");
         }
     }
-/*
-    public void save(PrintWriter pw) {
-  */      
 
+    public void save(PrintWriter pw) {
+        pw.println(title);
+        pw.println();
+        for(Question q : questions) {
+            if(q instanceof SAQuestion) {
+                pw.println("SAQuestion");
+                q.save(pw);
+                pw.println();
+            }
+            if(q instanceof MCSAQuestion) {
+                pw.println("MCSAQuestion");
+                q.save(pw);
+                pw.println();
+            }
+            if(q instanceof MCMAQuestion) {
+                pw.println("MCMAQuestion");
+                q.save(pw);
+                pw.println();
+            }
+        }
+    }
+
+    public void saveStudentAnswers(PrintWriter pw) {
+        pw.println(studentName);
+        pw.println();
+        
+        for(Question q : questions) {
+            if(q instanceof SAQuestion) {
+                pw.println("SAQuestion");
+                q.saveStudentAnswer(pw);
+                pw.println();
+                pw.println();
+            }
+            if(q instanceof MCSAQuestion) {
+                pw.println("MCSAQuestion");
+                q.saveStudentAnswer(pw);
+                pw.println();
+            
+            }
+            if(q instanceof MCMAQuestion) {
+                pw.println("MCMAQuestion");
+                q.saveStudentAnswer(pw);
+                pw.println();
+            }
+        }
+    }
 }

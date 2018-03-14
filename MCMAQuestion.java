@@ -60,6 +60,24 @@ class MCMAQuestion extends MCQuestion {
         return (accum + baseCredit) * maxValue; 
 
     }
+    
+    @Override
+    public void save(PrintWriter pw) {
+        pw.println(maxValue);
+        pw.println(text);
+        pw.println(baseCredit);
+        pw.println(answers.size());
+        for(Answer a : answers) {
+            a.save(pw);
+        }
+    }
+
+    public void saveStudentAnswer(PrintWriter pw) {
+        pw.println(studentAnswer.size());
+        for(Answer a : studentAnswer) {
+            a.saveStudentAnswer(pw);
+        }
+    }
    
 }
 

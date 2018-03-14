@@ -61,7 +61,19 @@ class MCSAQuestion extends MCQuestion {
     public void setRightAnswer(Answer ans) {
         super.setRightAnswer(ans);
     }
-
+   
+    @Override
+    public void save(PrintWriter pw) {
+        pw.println(maxValue);
+        pw.println(text);
+        pw.println(answers.size());
+        for(Answer a : answers) {
+            a.save(pw);
+        }
+    }
     
+    public void saveStudentAnswer(PrintWriter pw) {
+        studentAnswer.saveStudentAnswer(pw);
+    }
 
 }
